@@ -1,0 +1,9 @@
+<dataModule>
+ <components>
+  <TransportLayer registrator="true" applysuosettings="true">TransportLayer</TransportLayer>
+  <Timer repeat="false" running="false" triggeredOnStart="false" interval="400">Timer</Timer>
+  <Printer>Printer</Printer>
+  <PhotoCapture>PhotoCapture</PhotoCapture>
+  <Ict3k5CardReader>Ict3k5CardReader</Ict3k5CardReader>
+ </components>
+</dataModule>

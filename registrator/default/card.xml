@@ -1,0 +1,6 @@
+<scene focusBorderColor="#ff000000" focusBorderWidth="2" backgroundColor="#ffffffff">cardScene<components>
+  <VirtualKeyboard backgroundCommandButtonImage="" normalButtonBorderColor="#ff000000" defaultKeyboard="en" width="1442" opacity="1" x="260" y="631" okButtonIcon="pravo_aktivno_2.png" z="2" buttonFontPointSize="20" visible="false" lowerButtonIcon="" buttonFontFamily="Arial" smooth="true" spaceButtonIcon="" buttonFontBold="true" backgroundColor="#ff919191" deleteButtonIcon="" height="433" keyboardStyle="standard" upperButtonIcon="" normalButtonColor="#ffe6e6e6" backgroundButtonImage="" buttonBorderRadius="8" isNumeric="true" buttonBorderWidth="2" pressedButtonBorderColor="#ff000000" enabled="true" backgroundImageBorderOffset="3" verticalSpacingButton="5" pressedButtonColor="#ff808080" horizontalSpacingButton="5" buttonFontColor="#ff000000">VirtualKeyboard</VirtualKeyboard>
+  <BordersImage borderLeft="5" source="logo_1.png" borderTop="5" opacity="1" width="890" x="529" asynchronous="true" y="42" z="2" visible="true" borderRight="5" verticalTileMode="" smooth="true" horizontalTileMode="" height="129" borderBottom="5" enabled="true" mirror="false">BordersImage</BordersImage>
+ </components>
+ <order></order>
+</scene>
