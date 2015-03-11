@@ -2,12 +2,10 @@ function workWithCodeScene(name, dataName, data)
 {
     if( dataName === "onLoaded" )
     {
-        isPreRegistration = true;
+        typeOfRegistration = "code";
         scene.setComponentProperty("", "codeEdit", "text",numberOfPreRegistration);
         scene.setComponentProperty( "","VirtualKeyboard","enabled", true );
-        var resetInterval = getParameter("resetInterval")*1000;
-        scene.setComponentProperty( "", "Timer", "interval",resetInterval);
-        scene.executeComponentMethod("", "Timer", "start", "" );
+        setStartSceneTimer(getParameter("resetInterval")*1000);
     }
     if( name === "VirtualKeyboard" && dataName === "onKeyPressed" )
     {
@@ -52,26 +50,22 @@ function workWithCodeScene(name, dataName, data)
             else
             {  if( showWrongCodeMessage )
                 {
-
-                    var ShowErrorDelay = getParameter("ShowErrorDelay")*1000;
-                    scene.setComponentProperty( "", "Timer", "interval",ShowErrorDelay );
+                    setStartSceneTimer(getParameter("ShowErrorDelay")*1000);
                     scene.setComponentProperty("", "startAuthClientByCodeMessage", "text", data.Error);
                     enableAndVisibleButtonsforInfoMessage(true,"startAuthClientByCodeMessage","codeScene");
-                    scene.executeComponentMethod("", "Timer", "restart", "" );
                 }
                 else
                 {
                     numberOfPreRegistration = "";
-                    scene.switchScene("welcome.xml");
+                    setSceneAndTimerStop("welcome.xml");
                 }
             }
         }
     }
     if( name === "Timer" && dataName === "onTriggered" )
     {
-        scene.executeComponentMethod("", "Timer", "stop", "" );
         numberOfPreRegistration = "";
-        scene.switchScene("welcome.xml");
+        setSceneAndTimerStop("welcome.xml");
     }
 
     if ( name === "codeEdit" && dataName === "onClicked" )

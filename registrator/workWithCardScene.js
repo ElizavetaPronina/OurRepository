@@ -15,15 +15,14 @@ function workWithCardScene(name, dataName, data)
         {
             authorizedСlient = data.Data;
              getTreeNode(authorizedСlient);
-             scene.switchScene("services.xml");
+             setSceneAndTimerStop("services.xml");
         }
         if ( "Error" in data )
-            scene.switchScene("welcome.xml");
+            setSceneAndTimerStop("welcome.xml");
     }
     if( name === "Timer" && dataName === "onTriggered" )
     {
-        scene.executeComponentMethod("", "Timer", "stop", "" );
-        scene.switchScene("welcome.xml");
+        setSceneAndTimerStop("welcome.xml");
     }
     if ( name === "Ict3k5CardReader" && dataName === "onCardInserted" )
     {

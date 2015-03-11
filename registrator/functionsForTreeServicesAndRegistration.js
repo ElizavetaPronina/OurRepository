@@ -32,8 +32,8 @@ function getParameter( propertyObject )
     var result;
     if( propertyObject in suoParameters )
         result = suoParameters[propertyObject];
-    else if( propertyObject in DEFAULTPARAMETERS )
-        result = DEFAULTPARAMETERS[propertyObject];
+    else if( propertyObject in DEFAULT_PARAMETERS )
+        result = DEFAULT_PARAMETERS[propertyObject];
     return result;
 }
 
@@ -101,6 +101,6 @@ function retrieveTransportLayerSignalOfRegistration(data)
     if( takePhoto !== undefined && takePhoto && photoPath !== undefined )
         scene.executeComponentMethod("", "PhotoCapture", "capture", photoPath + clientNumber + extension );
 
-    scene.switchScene("ticket.xml");
+    setSceneAndTimerStop("ticket.xml");
 }
 

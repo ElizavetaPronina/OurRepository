@@ -11,14 +11,17 @@ var treeNode = rootNode;
 
 var parentIdArray = [];
 var dataOfClientRegistration = [];
-
-var  DEFAULTPARAMETERS = {
+var  DEFAULT_PARAMETERS = {
     takePhoto:true,
     photoPath:"C:/ProgramData/DoCash/Q2/Photos/",
     requestConfirmation:true,
     ShowMessageDelay:7,
     ShowErrorDelay:7,
-    resetInterval:10
+    runrowText : "Регистратор",
+    resetInterval:10,
+    infoMessageConnectToSUO : "true",
+    errorMessageSuoNotFound : "Сервер не найден!",
+    welcomeContentType : "slideshow"
 };
 var IS_FOLDER = "1";
 var IS_SERVICE = "0";
@@ -33,7 +36,7 @@ var numberOfPassport = "";
 var numberOfPreRegistration = "";
 var serviceNameForRegistration = "";
 
-var intervalForTicketScene = 7000;
+//var intervalForTicketScene = 7000;
 
 var extension = ".png";
 
@@ -46,7 +49,10 @@ var showWrongCodeMessage = true;
 var showWrongCardMessage = true;
 var showWrongPassportMessage = true;
 var registrateClientWithoutPaper = true;
-var isPreRegistration = false;
+var isServerConnected = false;
 
 var startAuthClientByMessage = "Подождите, идет автоpизация...";
+var typeOfRegistration = "";
+var welcomeText = "Здравствуйте!<br/>Пожалуйста, выберите способ регистрации в очереди:";
+var IMAGE_PARAMETERS = { direction : "clockwise", duration : 1000 };
 

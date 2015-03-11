@@ -1,0 +1,7 @@
+<scene focusBorderWidth="2" focusBorderColor="#ff000000" backgroundColor="#ffffffff">disconnectedScene<components>
+  <cancelButtonWithQuestion fontSize="20" width="306" borderBottom="5" pressedFontColor="#ff000000" text="Нет" borderRight="5" disabledSource="" pressedSource="" fontFamily="Arial" borderLeft="5" fontBold="false" normalFontColor="#ff000000" x="1239" y="881" height="56" enabled="false" opacity="1" visible="false" normalSource="centr_aktivn.png" hoverFontColor="#ff000000" hoverSource="" smooth="true" borderTop="5" disabledFontColor="#ff000000" z="3">Button</cancelButtonWithQuestion>
+  <SimpleImage mirror="false" z="2" y="356" enabled="false" width="500" opacity="1" autoSize="false" height="500" fillMode="stretch" smooth="false" source="loading.png" visible="false" asynchronous="false" x="733">SimpleImage</SimpleImage>
+  <SimpleText_1 width="1086" borderColor="#00a0a0a4" appearanceTime="0" fontMinimumPointSize="6" fontUnderline="false" text="Связь с сервером потеряна!" fontItalic="false" fontSizeMode="fixedsize" borderWidth="2" verticalAlignment="top" fontFamily="MS Shell Dlg 2" style="normal" fontBold="false" horizontalAlignment="left" x="632" y="129" height="186" lineHeight="1" enabled="true" textFormat="auto" lineHeightMode="proportionalheight" fontColor="#ff000000" backgroundColor="#00ffffff" opacity="1" borderRadius="-7" visible="true" fontPointSize="40" wrapMode="nowrap" fontStrikeout="false" disappearanceTime="16" smooth="true" styleColor="#ff000000" z="1">SimpleText</SimpleText_1>
+ </components>
+ <order></order>
+</scene>

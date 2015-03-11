@@ -1,0 +1,6 @@
+<scene focusBorderWidth="2" focusBorderColor="#ff000000" backgroundColor="#ffffffff">notClientScene<components>
+  <BordersImage width="890" borderBottom="5" borderRight="5" horizontalTileMode="" borderLeft="5" mirror="false" source="logo_1.png" y="42" x="529" verticalTileMode="" height="129" enabled="true" opacity="1" visible="true" smooth="true" asynchronous="true" borderTop="5" z="2">BordersImage</BordersImage>
+  <BordersImage_1 width="789" borderBottom="5" borderRight="5" horizontalTileMode="stretch" borderLeft="5" mirror="false" source="12.jpg" y="218" x="584" verticalTileMode="stretch" height="637" enabled="true" opacity="1" visible="true" smooth="true" asynchronous="false" borderTop="5" z="2">BordersImage</BordersImage_1>
+ </components>
+ <order></order>
+</scene>

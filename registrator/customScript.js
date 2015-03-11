@@ -3,6 +3,16 @@ function showArray(data)
     for(var key in data)
         logger.debug("key = " + key + " data = " + data[key]+ " typeOf = "+ typeof(data[key]));
 }
+function setSceneAndTimerStop(sceneXml)
+{
+    scene.executeComponentMethod("", "Timer", "stop","");
+    scene.switchScene(sceneXml);
+}
+function setStartSceneTimer(property)
+{
+    scene.setComponentProperty( "", "Timer", "interval",property);
+    scene.executeComponentMethod("", "Timer", "start", "" );
+}
 
 function runScript( mainScene, name, dataName, data )
 {
@@ -26,8 +36,11 @@ function runScript( mainScene, name, dataName, data )
     case "ticketScene":
         workWithTicketScene(name, dataName, data);
         break;
+    case "disconnectedScene":
+        workWithDisconnectedScene(name, dataName, data);
+        break;
     }
-     //    logs
+    //    logs
     print( "runScript : scene = " + mainScene + "  name = " + name + "  dataName = " + dataName )
 
     //    utils functions

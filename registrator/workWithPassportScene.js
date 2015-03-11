@@ -4,9 +4,7 @@ function workWithPassportScene(name, dataName, data)
     {
         scene.setComponentProperty("", "passportEdit", "text", correctNumberOfPassport(numberOfPassport));
         scene.setComponentProperty( "","VirtualKeyboard","enabled", true );
-        var resetInterval = getParameter("resetInterval")*1000;
-        scene.setComponentProperty( "", "Timer", "interval",resetInterval);
-        scene.executeComponentMethod("", "Timer", "start", "" );
+        setStartSceneTimer(getParameter("resetInterval")*1000);
     }
     if( name === "VirtualKeyboard" && dataName === "onKeyPressed" )
     {
@@ -47,31 +45,28 @@ function workWithPassportScene(name, dataName, data)
             {
                 authorizedСlient = data.Data;
                 getTreeNode(authorizedСlient);
-                scene.switchScene("services.xml");
+                setSceneAndTimerStop("services.xml");
             }
             else
             {
                 if( showWrongPassportMessage )
                 {
-                    var ShowErrorDelay = getParameter("ShowErrorDelay")*1000;
-                    scene.setComponentProperty( "", "Timer", "interval",ShowErrorDelay );
+                    setStartSceneTimer(getParameter("ShowErrorDelay")*1000);
                     scene.setComponentProperty("", "startAuthClientByPassportMessage", "text", data.Error);
                     enableAndVisibleButtonsforInfoMessage(true,"startAuthClientByPassportMessage","passportScene");
-                    scene.executeComponentMethod("", "Timer", "restart", "" );
                 }
                 else
                 {
                     numberOfPassport = "";
-                    scene.switchScene("welcome.xml");
+                    setSceneAndTimerStop("welcome.xml");
                 }
             }
         }
     }
     if( name === "Timer" && dataName === "onTriggered" )
     {
-        scene.executeComponentMethod("", "Timer", "stop", "" );
         numberOfPassport = "";
-        scene.switchScene("welcome.xml");
+        setSceneAndTimerStop("welcome.xml");
     }
 
     if ( name === "passportEdit" && dataName === "onClicked" )

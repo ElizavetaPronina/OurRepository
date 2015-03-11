@@ -6,56 +6,54 @@ function workWithTicketScene(name, dataName, data)
         var  requestConfirmation = getParameter("requestConfirmation");
         if ( requestConfirmation )
         {
-            var ShowMessageDelay = getParameter("ShowMessageDelay")*1000;
-            scene.setComponentProperty( "", "Timer", "interval",ShowMessageDelay);
-            scene.executeComponentMethod("", "Timer", "start", "" );
+            setStartSceneTimer(getParameter("ShowMessageDelay")*1000);
             enableAndVisibleButtonsforQuestionMessage(true);
         }
-
+        else
+        {
+            setStartSceneTimer(getParameter("resetInterval")*1000);
+            printCheck( dataOfClientRegistration, serviceNameForRegistration);
+        }
     }
     if( dataName === "onClicked" )
     {
+        setStartSceneTimer(getParameter("resetInterval")*1000);
+        isButtonClicked = true;
         switch( name )
         {
         case "okButtonWithQuestion":
-            isButtonClicked = true;
             enableAndVisibleButtonsforQuestionMessage(false);
-            scene.setComponentProperty( "", "Timer", "interval",intervalForTicketScene);
-            scene.executeComponentMethod("", "Timer", "start", "" );
             printCheck( dataOfClientRegistration, serviceNameForRegistration);
             break;
         case "cancelButtonWithQuestion":
-            isButtonClicked = true;
             enableAndVisibleButtonsforQuestionMessage(false);
-            scene.setComponentProperty( "", "Timer", "interval",intervalForTicketScene);
-            scene.executeComponentMethod("", "Timer", "start", "" );
             break;
         }
     }
     if( name === "Timer" && dataName === "onTriggered" )
-
-    {   if ( !isButtonClicked )
+    {
+        if( requestConfirmation && !isButtonClicked )
         {
             enableAndVisibleButtonsforQuestionMessage(false);
-            scene.setComponentProperty( "", "Timer", "interval",intervalForTicketScene);
-            scene.executeComponentMethod("", "Timer", "start", "" );
+            setStartSceneTimer(getParameter("resetInterval")*1000);
             printCheck( dataOfClientRegistration, serviceNameForRegistration);
             isButtonClicked = true;
         }
         else
         {
-            scene.executeComponentMethod("", "Timer", "stop", "" );
-            goHome();
-            if( isPreRegistration )
+            if( typeOfRegistration === "code" )
             {
-                scene.switchScene("welcome.xml");
-                isPreRegistration = false;
+                setSceneAndTimerStop("welcome.xml");
+                typeOfRegistration = "";
             }
             else
-                scene.switchScene("services.xml");
+            {
+                goHome();
+                setSceneAndTimerStop("services.xml");
+            }
         }
-    }
 
+    }
     if( name === "Printer" && dataName === "PrinterConnected" )
     {
         printerConnected = true;

@@ -5,9 +5,6 @@ function workWithServicesScene(name, dataName, data)
         scene.executeComponentMethod("", "TransportLayer", "getNodeServices",treeNode);
         settingsFromServer = scene.getComponentProperty("", "TransportLayer",  "applysuosettings" );
         scene.executeComponentMethod("", "PhotoCapture", "start","");
-        var resetInterval = getParameter("resetInterval")*1000;
-        scene.setComponentProperty( "", "Timer", "interval",resetInterval);
-        scene.executeComponentMethod("", "Timer", "start", "" );
     }
 
     if ( name === "TransportLayer" && dataName === "onNodeServices" )
@@ -34,6 +31,8 @@ function workWithServicesScene(name, dataName, data)
             var hasPrevios = scene.executeComponentMethod( "", "ButtonsPageList", "hasprevious", "" );
             scene.setComponentProperty( "", "nextTemplates", "enabled",hasNext );
             scene.setComponentProperty( "","previousTemplates", "enabled", hasPrevios );
+
+             setStartSceneTimer(getParameter("resetInterval")*1000);
 
             //      for ( var j=0; j<arrayButtons.length; j++)
             //        showArray(arrayButtons[j]);
@@ -74,14 +73,13 @@ function workWithServicesScene(name, dataName, data)
             break;
 
         case "homeButton":
-            scene.switchScene("welcome.xml");
+            setSceneAndTimerStop("welcome.xml");
             break;
         }
     }
     if( name === "Timer" && dataName === "onTriggered" )
     {
-        scene.executeComponentMethod("", "Timer", "stop", "" );
-        scene.switchScene("welcome.xml");
+        setSceneAndTimerStop("welcome.xml");
     }
 
 }
